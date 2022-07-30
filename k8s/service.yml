@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: widenoddle
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "widenoddle"
+    port: 8080
+  selector:
+    app: widenoddle

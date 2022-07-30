@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: widenoddle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: widenoddle
+  template:
+    metadata:
+      labels:
+        app: widenoddle
+    spec:
+      containers:
+      - image: okteto.dev/widenoddle:latest
+        name: widenoddle
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "301d47d6-888e-4413-b66c-9da1bce207fb"
+        - name: Vless_Path
+          value: "/vl4316"
+        - name: Vmess_UUID
+          value: "301d47d6-888e-4413-b66c-9da1bce207fb"
+        - name: Vmess_Path
+          value: "/vm65JJK666"
+        - name: Share_Path
+          value: "/v2link"
